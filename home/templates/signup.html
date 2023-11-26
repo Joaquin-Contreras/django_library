@@ -1,0 +1,11 @@
+<h1>SIGNUP</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><label for="dni">DNI: <input type="text" name="dni" autocapitalize="none" autofocus required id="dni"></label></p>
+    {{ error }}
+    <button>
+        Signup
+    </button>
+</form>
