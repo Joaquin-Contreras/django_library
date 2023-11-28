@@ -2,21 +2,54 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container" style="padding-top: 4rem;">
     <h1>SIGNUP</h1>
-<form method="POST">
-    {% csrf_token %}
-    <div class="mb-3">
-        {{ form.as_p}}
-    </div>
-    <div class="mb-3">
-        <p><label for="dni" class="form-label">DNI: <input type="text" name="dni" autocapitalize="none" class="form-control" autofocus required id="dni"></label></p>
-    </div>
-    {{ error }}
-    <button class="btn btn-success">
-        Signup
-    </button>
-</form>
+    <form class="row g-3" method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="first_name" class="form-label">First name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name">
+        </div>
+        <div class="col-md-6">
+            <label for="last_name" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name">
+        </div>
+        <div class="col-md-6">
+            <label for="password1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password1" name="password1">
+        </div>
+        <div class="col-md-6">
+            <label for="password2" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="password2" name="password2">
+        </div>
+        <div class="col-md-6">
+            <label for="email1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email1" name="email1">
+        </div>
+        <div class="col-md-6">
+            <label for="email2" class="form-label">Repeat email</label>
+            <input type="email" class="form-control" id="email2" name="email2">
+        </div>
+        <div class="col-md-6">
+            <label for="username" class="form-label">username</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="col-md-6">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dni" name="dni">
+        </div>
+        <!-- <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div> -->
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+            {{ error }}
+        </div>
+    </form>
 </div>
 
 
