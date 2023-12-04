@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import rents, User, comments
+from .models import Post, User, comments
 
 # Register your models here.
-admin.site.register(rents)
+admin.site.register(Post)
 admin.site.register(User)
 admin.site.register(comments)

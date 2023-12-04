@@ -67,7 +67,7 @@ class comments(models.Model):
     approved_comment = models.BooleanField(default=False)
 
 
-class rents(models.Model):
+class Post(models.Model):
     rent_id = models.BigAutoField(primary_key=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -76,9 +76,9 @@ class rents(models.Model):
     location = models.CharField(max_length=300)
     published_date = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField()
-    reviews_nb = models.DecimalField(decimal_places=10, max_digits=20)
-    reviews_avg = models.DecimalField(decimal_places=5, max_digits=20)
-    comments = models.ForeignKey(comments, on_delete=models.CASCADE)
+    reviews_nb = models.DecimalField(decimal_places=10, max_digits=20, null=True, blank=True)
+    reviews_avg = models.DecimalField(decimal_places=5, max_digits=20, null=True, blank=True)
+    comments = models.ForeignKey(comments, on_delete=models.CASCADE, null=True, blank=True)
     bedrooms = models.DecimalField(decimal_places=4, max_digits=15)
     bathrooms = models.DecimalField(decimal_places=4, max_digits=15)
     total_guests_limit = models.DecimalField(decimal_places=4, max_digits=15)
